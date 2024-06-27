@@ -1,0 +1,51 @@
+version: '3'
+services:
+  api:
+    ports:
+      - "5000:5000"
+    working_dir: /workspace
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DB_URL=jdbc:mysql://mysql:3306/recruit
+      - DB_USER=gsuser
+      - DB_PASSWORD=password
+      - TZ=Asia/Tokyo
+    command: /bin/bash
+    tty: true
+    volumes:
+      - ../:/workspace
+    depends_on:
+      - mysql
+  mysql:
+    image: mysql:8.0
+    container_name: recruit-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=recruit
+      - MYSQL_USER=gsuser
+      - MYSQL_PASSWORD=password
+      - TZ=Asia/Tokyo
+    ports:
+      - "50000:3306"
+    volumes:
+      - ../.mysql/data:/var/lib/mysql
+      - target:/workspace/api/target
+      - logs:/workspace/logs
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: recruit-phpmyadmin
+    depends_on:
+      - mysql
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOSTS=mysql
+      - PMA_USER=gsuser
+      - PMA_PASSWORD=password
+    ports:
+      - "50001:80"
+
+volumes:
+  target:
+  logs:

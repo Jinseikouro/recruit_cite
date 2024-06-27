@@ -1,0 +1,19 @@
+{
+    "name": "api",
+    "dockerComposeFile": "./docker-compose.yml",
+    "service": "api",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.pylint",
+                "ms-python.autopep8"
+            ],
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash"
+            },
+        }
+    },
+    "remoteUser": "root",
+    "updateRemoteUserUID": true
+}

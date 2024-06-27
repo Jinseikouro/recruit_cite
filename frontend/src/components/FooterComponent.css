@@ -1,0 +1,12 @@
+#footer-style {
+    height: 60px;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    background: #bae8ba;
+}
+
+#footer-style Button {
+    margin-top: 10px;
+    height: 40px;
+}

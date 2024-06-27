@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
+
+#header {
+    display: flex;
+    align-items: center;
+    background: #bae8ba;
+}
+
+#header Input {
+    margin-left: 400px;
+}
+
+#header Button {
+    margin-left: 20px;
+}
+
+#comname {
+    margin-top: 10px;
+    margin-left: 40px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 2em;
+    color: rgb(60, 57, 62);
+    cursor: pointer;
+}
+
+#image {
+    cursor: pointer;
+}
